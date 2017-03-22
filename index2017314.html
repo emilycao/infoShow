@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>3D</title>
+		<link rel="stylesheet" href="css/3d.css">
+	</head>
+	<body>
+		<img src="img/img01.png" width="100%" height="100%" />
+		<img src="img/red.png" class="img pos" id="pos">
+		<img src="img/red.png" class="img pos1">
+		<img src="img/red.png" class="img pos2">
+		<img src="img/red.png" class="img pos3">
+		
+		<div id="popup">
+			<div class="infoTip">
+				<div id="closed" class="closed"></div>
+				<div class="content">
+					<a>一层</a>
+					<p>A101-106 <span>上海新世纪科技有限公司</span></p>
+					<p>A107-109 <span>上海永安高科技股份有限公司</span></p>
+					<p>A201-209 <span>上海得来康德企业发展集团股份有限公司</span></p>
+				</div>
+				<div class="content">
+					<a>二层</a>
+					<p>A101-106 <span>上海新世纪科技有限公司</span></p>
+					<p>A107-109 <span>上海永安高科技股份有限公司</span></p>
+					<p>A201-209 <span>上海得来康德企业发展集团股份有限公司</span></p>
+				</div>
+				<div class="content">
+					<a>三层</a>
+					<p>A101-106 <span>上海新世纪科技有限公司</span></p>
+					<p>A107-109 <span>上海永安高科技股份有限公司</span></p>
+					<p>A201-209 <span>上海得来康德企业发展集团股份有限公司</span></p>
+				</div>
+
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function () {
+			var blink = document.getElementById('pos');
+			var close = document.getElementById('closed');
+			blink.onclick = function() {
+				var pop = document.getElementById('popup');
+				var oTop = parseInt(pos('pos').top) ;
+				var oLeft = parseInt(pos('pos').left);
+            	pop.style.display = 'block';
+            	pop.style.top = oTop + 'px';
+            	pop.style.left = oLeft + 60 + 'px' ;
+				
+				close.onclick = function () {
+					pop.style.display = 'none';
+				}
+			}
+			
+			function pos (ev) {
+				var div=document.getElementById(ev);
+				var top,left;
+				if(div.currentStyle){
+					left = div.currentStyle.left;
+					top = div.currentStyle.top;
+				}
+  				else if(window.getComputedStyle)
+  					{
+  						left = window.getComputedStyle(div,null).left;
+  						top = window.getComputedStyle(div,null).top;
+  					}
+  				return {
+  					left : left,
+  					top : top
+  				}
+		 }
+
+		}
+	</script>
+</html>
